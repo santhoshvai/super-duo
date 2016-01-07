@@ -2,7 +2,6 @@ package barqsoft.footballscores;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -152,28 +151,6 @@ public class Utilities
         toast.show();
 
         return toast;
-    }
-
-    /**
-     * Scale a bitmap and return the scaled version
-     * @param context Context
-     * @param bitmap Bitmal
-     * @param height int
-     * @return Bitmap
-     */
-    public static Bitmap scaleBitmap(Context context, Bitmap bitmap, int height) {
-
-        // get the device density
-        final float densityMultiplier = context.getResources().getDisplayMetrics().density;
-
-        // calculate the height, and relative width
-        int newHeight = (int) (height * densityMultiplier);
-        int newWidth = (int) (newHeight * bitmap.getWidth() / ((double) bitmap.getHeight()));
-
-        // scale the bitmap
-        bitmap = Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, true);
-
-        return bitmap;
     }
 
 }

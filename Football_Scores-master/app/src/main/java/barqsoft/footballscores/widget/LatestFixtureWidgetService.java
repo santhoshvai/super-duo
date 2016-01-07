@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -141,10 +140,6 @@ public class LatestFixtureWidgetService extends IntentService {
 
         // if bitmap loaded update the given imageview
         if (bitmap != null) {
-            // scale the bitmap down because of the binder limit
-            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
-                bitmap = Utilities.scaleBitmap(getApplicationContext(), bitmap, 150);
-            }
             views.setImageViewBitmap(viewId, bitmap);
         }
     }
